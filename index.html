@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Sarah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfc;
+            color: #374151;
+        }
+        h1, .serif-text {
+            font-family: 'Lora', serif;
+        }
+        
+        /* Animasi fade-in untuk memberikan kesan tenang dan emosional */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+        }
+        .delay-1 { animation-delay: 1.5s; }
+        .delay-2 { animation-delay: 4.5s; }
+        .delay-3 { animation-delay: 7.5s; }
+        .delay-4 { animation-delay: 10s; }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(15px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6 sm:p-12">
+    <div class="max-w-2xl w-full text-center space-y-16">
+        
+        <div class="fade-in">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-medium tracking-wide text-gray-900">
+                Sarah Nuraliza.
+            </h1>
+            <div class="w-10 h-[1px] bg-gray-300 mx-auto mt-8"></div>
+        </div>
+
+        <div class="space-y-10 text-sm md:text-base leading-relaxed font-light text-gray-600">
+            
+            <p class="fade-in delay-1 px-4 sm:px-12">
+                Kurang dari satu bulan.<br>
+                Di atas kertas, itu hanya angka yang sangat singkat. Tapi anehnya, gambaran dan harapan yang terbentang di kepalaku jauh melewati rentang waktu itu. Waktu yang sebentar ternyata cukup untuk menyisakan sesuatu yang dalam.
+            </p>
+
+            <p class="fade-in delay-2 px-4 sm:px-12">
+                Kita mungkin tidak bisa berjalan berdampingan untuk saat ini. Ada realita yang harus diterima, dan keadaan yang belum berpihak. Tapi aku selalu percaya, yang namanya waktu dan kesempatan adalah rahasia—tidak ada satu pun yang bisa menebak bagaimana ia akan bekerja nanti.
+            </p>
+
+            <p class="fade-in delay-3 px-4 italic serif-text text-gray-800 text-lg sm:text-xl">
+                "Terima kasih sudah hadir. Sampai jumpa di waktu yang mungkin lebih tepat, atau di kesempatan yang mungkin lebih baik."
+            </p>
+
+        </div>
+
+        <div class="fade-in delay-4 pt-12 pb-4">
+            <p class="text-[10px] text-gray-400 uppercase tracking-[0.3em]">Made with love.</p>
+        </div>
+
+    </div>
+</body>
+</html>
