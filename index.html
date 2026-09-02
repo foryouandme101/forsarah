@@ -4,111 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Untuk Sarah</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Lora (untuk elemen klasik) dan Inter (untuk teks yang rapi) -->
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            color: #2b2b2b;
-            /* Latar belakang dengan tekstur kertas halus (CSS Noise) */
-            background-color: #fcfaf8;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a1a;
+            background-color: #f4ede4; /* Warna krem hangat/retro */
+            background-image: radial-gradient(#d1c4b9 1px, transparent 1px);
+            background-size: 20px 20px;
         }
         
         .font-serif {
             font-family: 'Lora', serif;
         }
 
-        /* Warna aksen untuk ornamen (Rose Gold / Terakota pudar) */
-        .accent-color {
-            color: #d1b4a9;
+        /* Container Card Neo-Brutalist tapi lembut */
+        .card-brutalist {
+            background-color: #ffffff;
+            border: 3px solid #1a1a1a;
+            border-radius: 12px;
+            box-shadow: 6px 6px 0px #1a1a1a;
         }
 
         /* Animasi fade-in */
         .fade-in {
             opacity: 0;
-            animation: fadeIn 2s ease-in forwards;
+            animation: fadeIn 1.5s ease-out forwards;
         }
-        .delay-1 { animation-delay: 1s; }
-        .delay-2 { animation-delay: 3.5s; }
-        .delay-3 { animation-delay: 6s; }
-        .delay-4 { animation-delay: 8s; }
-        .delay-5 { animation-delay: 10s; }
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 2s; }
+        .delay-3 { animation-delay: 4s; }
+        .delay-4 { animation-delay: 6s; }
+        .delay-5 { animation-delay: 8s; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tombol Neo-Brutalist Interaktif */
+        .neo-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffb5a7; /* Warna coral pastel */
+            color: #1a1a1a;
+            font-weight: 600;
+            padding: 12px 28px;
+            border: 2px solid #1a1a1a;
+            border-radius: 8px;
+            box-shadow: 4px 4px 0px #1a1a1a;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neo-btn:hover {
+            background-color: #fcd5ce;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #1a1a1a;
+        }
+
+        .neo-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px #1a1a1a;
+        }
+
+        /* Efek kilauan saat di-hover */
+        .neo-btn::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(35deg);
+            transition: all 0.6s ease;
+        }
+
+        .neo-btn:hover::after {
+            left: 120%;
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-6 sm:p-12">
+<body class="min-h-screen flex items-center justify-center p-6">
     
-    <div class="max-w-2xl w-full text-center space-y-10">
+    <div class="card-brutalist max-w-2xl w-full p-8 md:p-12 text-center space-y-10 relative">
         
-        <!-- Ornamen Atas (Ombak/Angin) -->
-        <div class="fade-in flex justify-center">
-            <svg class="w-16 md:w-20 accent-color opacity-80" viewBox="0 0 100 30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-                <path d="M10,20 Q25,5 40,20 T70,20 Q85,5 100,20" />
-                <path d="M40,20 Q55,5 70,20" opacity="0.4"/>
-            </svg>
-        </div>
+        <div class="absolute -top-3 -left-3 w-6 h-6 bg-red-400 border-2 border-black rounded-full z-10"></div>
+        <div class="absolute -bottom-3 -right-3 w-6 h-6 bg-blue-300 border-2 border-black rounded-sm z-10"></div>
 
-        <!-- Judul -->
         <div class="fade-in space-y-4">
-            <h1 class="text-4xl sm:text-5xl font-serif text-gray-800 tracking-wide">
+            <h1 class="text-4xl sm:text-5xl font-serif font-medium tracking-wide">
                 Sarah Nuraliza.
             </h1>
-            
-            <!-- Garis Pembatas (Dotted line) -->
-            <div class="flex justify-center pt-2">
-                <svg class="w-3/4 max-w-sm accent-color opacity-60" height="2" viewBox="0 0 100 2" preserveAspectRatio="none">
-                    <line x1="0" y1="1" x2="100" y2="1" stroke="currentColor" stroke-width="2" stroke-dasharray="2, 4" />
-                </svg>
-            </div>
+            <div class="w-16 h-1 bg-black mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <!-- Isi Surat -->
-        <div class="space-y-8 text-sm md:text-base leading-relaxed font-light text-gray-700">
+        <div class="space-y-6 text-sm md:text-base leading-relaxed font-normal text-gray-800">
             
-            <p class="fade-in delay-1 px-4 sm:px-12">
-                Kurang dari satu bulan... di mata waktu, itu tak lebih dari sekejap. Tapi di mataku, itu cukup untuk mengukir sesuatu yang sulit dihapus. Harapan yang kubayangkan tidak pernah peduli berapa lama kita menghabiskan waktu bersama.
+            <p class="fade-in delay-1 px-2 sm:px-8 text-left">
+                Aku mau minta maaf untuk kejadian kemarin. Jujur, aku tidak bisa berbohong kalau perasaan bersalah itu masih tersisa sampai sekarang.
             </p>
 
-            <p class="fade-in delay-2 px-4 sm:px-12">
-                Dunia berputar, dan terkadang kita harus berjalan di jalan yang berbeda untuk sementara. Tidak ada yang bisa menguasai takdir, apalagi menebak di mana waktu akan mempertemukan kembali kesempatan yang tertunda.
+            <p class="fade-in delay-2 px-2 sm:px-8 text-left">
+                Kamu hanya ingin berbagi dan jujur tentang apa yang kamu rasakan, tapi respons yang kukeluarkan justru berlebihan. Aku kurang tenang dalam mendengarkan, dan aku menyesali itu.
             </p>
 
-            <p class="fade-in delay-3 px-4 sm:px-12">
-                Mungkin suatu saat nanti.
+            <p class="fade-in delay-3 px-2 sm:px-8 text-left">
+                Aku benar-benar berharap kita bisa kembali seperti hari-hari sebelumnya. Suasana yang hangat, tenang, dan tanpa ada jarak ganjil di antara kita.
             </p>
 
-            <p class="fade-in delay-4 px-4 sm:px-8 font-serif italic text-gray-800 text-lg md:text-xl font-medium pt-2">
-                "Terima kasih sudah hadir. Di antara semua yang singkat, kamu adalah kenangan yang ingin aku simpan selamanya."
-            </p>
+            <div class="fade-in delay-4 p-6 bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg mt-6">
+                <p class="font-serif italic text-gray-900 text-lg md:text-xl">
+                    "I’m really sorry for reacting too far. Terima kasih sudah mau membaca ini, dan aku berharap kita bisa baik-baik saja lagi."
+                </p>
+            </div>
 
         </div>
 
-        <!-- Ornamen Bawah (Daun) & Penutup -->
-        <div class="fade-in delay-5 pt-12 pb-6 space-y-4">
+        <div class="fade-in delay-5 pt-8 pb-2 space-y-6 flex flex-col items-center">
             
-            <!-- Ikon Daun SVG -->
-            <div class="flex justify-center">
-                <svg class="w-8 h-8 text-gray-600 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22v-5"/>
-                    <path d="M9 7C9 3 12 2 12 2s3 1 3 5-3 5-3 5-3-4-3-5z"/>
-                    <path d="M12 17c-3 0-5-1.5-5-4s2-3 5-3"/>
-                    <path d="M12 17c3 0 5-1.5 5-4s-2-3-5-3"/>
-                    <path d="M9 14c-2 0-3-1-3-2.5S7 9 9 9"/>
-                    <path d="M15 14c2 0 3-1 3-2.5S17 9 15 9"/>
+            <a href="#" class="neo-btn group" onclick="alert('Terima kasih sudah membaca, Sarah. :)')">
+                <span class="mr-2">Maafkan aku?</span>
+                <svg class="w-5 h-5 group-hover:animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                 </svg>
-            </div>
+            </a>
 
-            <div class="space-y-1">
-                <p class="text-[11px] text-gray-500 uppercase tracking-[0.1em]">Made with love.</p>
-                <p class="text-[11px] text-gray-400">untuk Sarah, seandainya kamu tahu seberapa dalam harapan itu terbentang.</p>
+            <div class="space-y-1 pt-4">
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Made with love.</p>
+                <p class="text-[10px] text-gray-400">Ditulis dengan tulus, tanpa ada yang ditutupi.</p>
             </div>
         </div>
 
