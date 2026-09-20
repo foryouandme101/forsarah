@@ -3,176 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buku Putih Geopolitik 2026</title>
+    <title>ARSIP RAHASIA - DIREKTORI GEOPOLITIK</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&display=swap');
-
         :root {
-            --hitam: #0f0f0f;
-            --putih: #fafafa;
-            --kuning: #ffd800;
-            --merah: #ff4747;
-            --hijau: #00e676;
-            --biru: #18ffff;
-            --border-tebal: 4px solid var(--hitam);
-            --bayangan-keras: 8px 8px 0px var(--hitam);
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --latar: #050505;
+            --teks: #e0e0e0;
+            --merah-peringatan: #d32f2f;
+            --hijau-terminal: #00ff41;
+            --abu-redup: #4a4a4a;
         }
 
         body {
-            background-color: var(--putih);
-            color: var(--hitam);
-            font-family: 'Space Grotesk', 'Courier New', monospace;
+            background-color: var(--latar);
+            color: var(--teks);
+            font-family: 'Courier New', Courier, monospace;
             line-height: 1.6;
+            margin: 0;
             padding: 2rem;
+            display: flex;
+            justify-content: center;
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
-        .wadah {
-            max-width: 1200px;
-            margin: 0 auto;
+        .terminal-container {
+            max-width: 900px;
+            width: 100%;
+            border: 1px solid var(--abu-redup);
+            padding: 2rem;
+            box-shadow: 0 0 15px rgba(0,0,0,0.8);
+            position: relative;
         }
 
-        header {
-            background-color: var(--kuning);
-            border: var(--border-tebal);
-            box-shadow: var(--bayangan-keras);
-            padding: 4rem 2rem;
-            margin-bottom: 4rem;
+        .header-sistem {
+            border-bottom: 2px dashed var(--abu-redup);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--hijau-terminal);
+        }
+
+        .peringatan {
+            color: var(--merah-peringatan);
+            font-weight: bold;
+            border: 2px solid var(--merah-peringatan);
+            padding: 1rem;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            background-color: rgba(211, 47, 47, 0.1);
+            animation: kedip 3s infinite;
+        }
+
+        @keyframes kedip {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .dokumen {
+            border-left: 4px solid var(--abu-redup);
+            padding-left: 1.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .dokumen::before {
+            content: "[TERDEKRIPSI]";
+            position: absolute;
+            top: -10px;
+            right: 0;
+            font-size: 0.8rem;
+            color: var(--hijau-terminal);
+            background-color: var(--latar);
+            padding: 0 5px;
+        }
+
+        h1, h2 {
+            text-transform: uppercase;
+            font-weight: normal;
+            letter-spacing: 1px;
+            margin: 0 0 1rem 0;
         }
 
         h1 {
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            margin-bottom: 1rem;
-            font-weight: 900;
-        }
-
-        .deskripsi-header {
-            font-size: 1.2rem;
-            font-weight: 600;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .grid-kartu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .kartu {
-            background-color: var(--putih);
-            border: var(--border-tebal);
-            box-shadow: var(--bayangan-keras);
-            padding: 2.5rem;
-            transition: transform 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .kartu:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0px var(--hitam);
-        }
-
-        .kartu.eropa { background-color: var(--biru); }
-        .kartu.timteng { background-color: var(--hijau); }
-        .kartu.indonesia { background-color: var(--merah); color: var(--hitam); }
-        
-        .kartu.indonesia h2 { 
-            color: var(--putih); 
-            -webkit-text-stroke: 1.5px var(--hitam); 
-            text-shadow: 4px 4px 0px var(--hitam);
-        }
-
-        .kartu.indonesia p {
-            font-weight: 700;
-        }
-
-        .label {
-            display: inline-block;
-            background-color: var(--hitam);
-            color: var(--putih);
-            padding: 0.5rem 1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            border: 2px solid var(--hitam);
-            align-self: flex-start;
+            font-size: 1.5rem;
+            color: var(--merah-peringatan);
         }
 
         h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            text-transform: uppercase;
-            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--teks);
+            border-bottom: 1px solid var(--abu-redup);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .meta-data {
+            font-size: 0.85rem;
+            color: var(--abu-redup);
+            margin-bottom: 1rem;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 5px;
+        }
+
+        .meta-data span:first-child {
+            color: var(--teks);
         }
 
         p {
-            font-size: 1.1rem;
-            margin-bottom: 1.2rem;
-            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: justify;
         }
 
-        .sumber {
+        .redaksi {
+            background-color: var(--teks);
+            color: var(--teks);
+            padding: 0 4px;
+            user-select: none;
+        }
+
+        .redaksi:hover {
+            background-color: transparent;
+        }
+
+        .sumber-intelijen {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--abu-redup);
+            border-top: 1px dashed var(--abu-redup);
+            padding-top: 0.5rem;
             display: block;
-            margin-top: auto;
-            font-size: 0.85rem;
-            font-weight: 900;
-            border-top: 3px solid var(--hitam);
-            padding-top: 1rem;
-            text-transform: uppercase;
+        }
+
+        /* Scanline effect overlay */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.1) 50%,
+                rgba(0,0,0,0.1)
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
         }
         
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .grid-kartu { grid-template-columns: 1fr; }
-            body { padding: 1rem; }
+        .akhiri-sesi {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--hijau-terminal);
+            font-size: 0.9rem;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="wadah">
-        <header>
-            <h1>Realitas Geopolitik 2026</h1>
-            <p class="deskripsi-header">Analisis Berbasis Data Aktual Internasional. Fakta Objektif Tanpa Distorsi Propaganda Domestik.</p>
-        </header>
+    <div class="scanlines"></div>
+    <div class="terminal-container">
+        <div class="header-sistem">
+            > LOGIN: ID-9982-ADMIN<br>
+            > OTENTIKASI: DITERIMA<br>
+            > PROTOKOL KEAMANAN: TINGKAT 5 (MATA KETIGA)<br>
+            > STATUS KONEKSI: ENKRIPSI AES-256 AMAN
+        </div>
 
-        <main class="grid-kartu">
-            <article class="kartu eropa">
-                <span class="label">Eropa vs Rusia</span>
-                <h2>Perang Hibrida & Armada Bayangan</h2>
-                <p>Memasuki kuartal ketiga 2026, ketegangan antara benua Eropa dan Rusia beralih ke spektrum operasi hibrida. Walaupun Presiden Rusia Vladimir Putin merilis pernyataan resmi bahwa Moskow tidak memiliki tendensi agresif terhadap Eropa, bukti intelijen di lapangan bertolak belakang.</p>
-                <p>Jerman dan Prancis menaikkan status siaga darurat pada infrastruktur kritis negara paska-penemuan pesawat nirawak bermuatan peledak di bandara Leipzig. Uni Eropa secara aktif merespons militerisasi "armada bayangan" kapal kargo Rusia dengan intervensi langsung di wilayah perairan Laut Baltik.</p>
-                <span class="sumber">Data: Observasi Intelijen Keamanan Uni Eropa</span>
-            </article>
+        <div class="peringatan">
+            Dokumen Klasifikasi Tinggi<br>
+            Akses Tidak Sah Dikenakan Sanksi Hukum Berdasarkan Protokol Keamanan Negara
+        </div>
 
-            <article class="kartu timteng">
-                <span class="label">Jazirah Arab</span>
-                <h2>Eskalasi Pertahanan Udara Riyadh</h2>
-                <p>Gencatan senjata artifisial di Yaman kembali runtuh. Milisi Houthi melancarkan gelombang serangan udara mematikan berskala besar, mencakup peluncuran rudal balistik dan pesawat nirawak bunuh diri yang menargetkan fasilitas vital di ibu kota Riyadh, bandara Abha, serta kilang minyak strategis di Yanbu.</p>
-                <p>Pasukan koalisi militer pimpinan Arab Saudi membalas melalui gempuran udara intensif di kawasan Hodeidah dan Marib. Akibat intensitas intersepsi yang luar biasa, cadangan amunisi pertahanan udara Arab Saudi berada pada titik kritis, memaksa Riyadh mencari intervensi pasokan darurat dari sekutu militernya.</p>
-                <span class="sumber">Data: Laporan Pertahanan Global & PBS (September 2026)</span>
-            </article>
+        <div class="dokumen">
+            <h1>BERKAS 01: TEATER EROPA</h1>
+            <div class="meta-data">
+                <span>SUBJEK:</span><span>Perang Hibrida & Armada Bayangan Rusia</span>
+                <span>STATUS:</span><span>Aktif / Kuartal III 2026</span>
+            </div>
+            <p>Ketegangan antara benua Eropa dan Rusia telah beralih ke spektrum operasi hibrida. Walaupun Presiden Rusia merilis pernyataan resmi bahwa Moskow tidak memiliki tendensi agresif terhadap Eropa, bukti intelijen satelit dan lapangan menunjukkan anomali. Jerman dan Prancis telah menaikkan status siaga darurat pada infrastruktur kritis negara pascapenemuan pesawat nirawak bermuatan peledak di sekitar bandara Leipzig.</p>
+            <p>Secara bersamaan, Uni Eropa secara proaktif merespons militerisasi "armada bayangan" kapal kargo Rusia dengan intervensi pencegatan langsung di perairan strategis Laut Baltik, mencegah penyaluran logistik militer tertutup.</p>
+            <span class="sumber-intelijen">Rujukan Data: Observasi Intelijen Keamanan Uni Eropa (2026)</span>
+        </div>
 
-            <article class="kartu indonesia">
-                <span class="label">Analisis Diplomasi</span>
-                <h2>Ilusi Supremasi Global Indonesia</h2>
-                <p>Laporan empiris <i>Lowy Institute Asia Power Index</i> terbaru menempatkan Indonesia sekadar di peringkat ke-9 dari 27 negara dengan agregat skor 22,5 dari 100. Berdasarkan metrik geopolitik, Indonesia murni berstatus "kekuatan menengah" (<i>middle power</i>).</p>
-                <p>Terdapat disonansi absolut antara retorika pemerintah dan realitas empiris. Di dalam negeri, pemimpin menyebarkan fabrikasi informasi bahwa Indonesia sangat disegani dan menjadi poros sentral yang mengatur arah kebijakan dunia. Faktanya, kapabilitas militer Indonesia lemah (peringkat ke-13 secara regional), disusul dengan kemunduran signifikan pada indikator jejaring pertahanan dan hubungan ekonomi internasional. Klaim kekaguman dunia yang didengungkan kepada rakyat adalah kebohongan publik yang dirancang semata-mata untuk konsumsi politik domestik.</p>
-                <span class="sumber">Data: Lowy Institute Asia Power Index (2025/2026)</span>
-            </article>
-        </main>
+        <div class="dokumen">
+            <h1>BERKAS 02: TEATER JAZIRAH ARAB</h1>
+            <div class="meta-data">
+                <span>SUBJEK:</span><span>Eskalasi Pertahanan Udara Riyadh</span>
+                <span>STATUS:</span><span>Kritis</span>
+            </div>
+            <p>Gencatan senjata artifisial di Yaman dipastikan runtuh. Milisi Houthi kembali melancarkan gelombang serangan udara mematikan berskala masif, mencakup peluncuran rudal balistik dan pesawat nirawak bunuh diri. Target utama mencakup fasilitas vital di ibu kota Riyadh, bandara Abha, serta kilang minyak strategis di Yanbu.</p>
+            <p>Pasukan koalisi militer pimpinan Arab Saudi membalas melalui gempuran udara intensif di kawasan Hodeidah dan Marib. Akibat intensitas intersepsi yang terus-menerus, tingkat cadangan amunisi pertahanan udara Arab Saudi saat ini berada pada ambang batas kritis. Situasi ini memaksa Riyadh mencari intervensi dan pasokan darurat dari jaringan sekutu militernya.</p>
+            <span class="sumber-intelijen">Rujukan Data: Laporan Pertahanan Global & PBS (September 2026)</span>
+        </div>
+
+        <div class="dokumen">
+            <h1>BERKAS 03: TEATER ASIA TENGGARA</h1>
+            <div class="meta-data">
+                <span>SUBJEK:</span><span>Disinformasi Hegemoni Indonesia</span>
+                <span>STATUS:</span><span>Rahasia Tingkat Tinggi (Sangat Sensitif)</span>
+            </div>
+            <p>Evaluasi metrik geopolitik berdasarkan laporan empiris <i>Lowy Institute Asia Power Index</i> terbaru secara gamblang menempatkan Indonesia pada peringkat ke-9 dari 27 negara (agregat skor 22,5 dari 100). Klasifikasi objektif untuk Indonesia adalah kekuatan menengah (<i>middle power</i>), bukan kekuatan dominan regional maupun global.</p>
+            <p>Terdapat disonansi absolut antara retorika pemerintah dan realitas empiris. Analisis percakapan publik dan siaran resmi menunjukkan bahwa pemerintah menyebarkan fabrikasi informasi kepada rakyatnya bahwa pemimpin negara tersebut sangat disegani dan menjadi poros sentral pengatur kebijakan dunia. Faktanya, kapabilitas militer Indonesia tertinggal (peringkat ke-13 secara regional), disusul dengan kemunduran signifikan pada indikator jejaring pertahanan dan hubungan ekonomi internasional.</p>
+            <p>Klaim kekaguman dunia internasional yang terus didengungkan teridentifikasi sebagai <span class="redaksi">kebohongan publik terstruktur</span> yang dirancang semata-mata untuk mengamankan stabilitas dan konsumsi politik domestik, menutupi stagnasi pengaruh diplomasi di mata dunia nyata.</p>
+            <span class="sumber-intelijen">Rujukan Data: Lowy Institute Asia Power Index (2025/2026) - Analisis Internal</span>
+        </div>
+
+        <div class="akhiri-sesi">
+            > _TEKAN [ESC] UNTUK MENGAKHIRI SESI AMAN_
+        </div>
     </div>
 </body>
 </html>
