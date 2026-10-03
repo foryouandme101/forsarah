@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maafin Aku Ya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden; /* Mencegah scroll bar saat tombol lari-lari */
+            background-color: #fdf2f8; /* Soft pink pastel */
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatUp 3s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5) rotate(-10deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) scale(1.2) rotate(10deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1) rotate(-10deg);
+                opacity: 0;
+            }
+        }
+
+        /* Styling spesifik untuk tombol ngga agar transisinya mulus saat kabur */
+        #btn-no {
+            transition: top 0.3s ease-out, left 0.3s ease-out, transform 0.2s;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center relative select-none">
+
+    <div class="text-center z-10 w-full px-4 flex flex-col items-center">
+        <h1 id="main-text" class="text-3xl md:text-5xl font-semibold text-gray-700 mb-10 transition-all duration-500 ease-in-out">
+            Maafin aku ya... 🥺
+        </h1>
+        
+        <div id="button-container" class="flex gap-6 justify-center items-center relative h-12 w-full max-w-xs">
+            <!-- Tombol Iya -->
+            <button id="btn-yes" class="px-8 py-3 bg-rose-400 text-white rounded-full font-medium shadow-md hover:bg-rose-500 hover:shadow-lg hover:scale-105 active:scale-95 transition-all w-32">
+                Iyaa
+            </button>
+            
+            <!-- Tombol Ngga -->
+            <button id="btn-no" class="px-8 py-3 bg-white text-gray-600 rounded-full font-medium shadow hover:shadow-md border border-gray-100 w-32 relative z-50">
+                Ngga
+            </button>
+        </div>
+    </div>
+
+    <!-- Container untuk animasi love -->
+    <div id="hearts-container" class="absolute inset-0 pointer-events-none z-0"></div>
+
+    <script>
+        const btnNo = document.getElementById('btn-no');
+        const btnYes = document.getElementById('btn-yes');
+        const mainText = document.getElementById('main-text');
+        const buttonContainer = document.getElementById('button-container');
+        const heartsContainer = document.getElementById('hearts-container');
+
+        let isMoved = false;
+
+        // Fungsi untuk membuat tombol "Ngga" berpindah posisi acak
+        const moveButton = () => {
+            // Ubah posisi menjadi fixed hanya saat pertama kali disorot 
+            // agar tidak merusak layout awal
+            if (!isMoved) {
+                btnNo.style.position = 'fixed';
+                isMoved = true;
+            }
+
+            // Mendapatkan ukuran layar
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            
+            // Mendapatkan ukuran tombol
+            const btnWidth = btnNo.offsetWidth;
+            const btnHeight = btnNo.offsetHeight;
+
+            // Menghitung batas maksimal posisi x dan y (diberi padding 20px)
+            const maxX = windowWidth - btnWidth - 20;
+            const maxY = windowHeight - btnHeight - 20;
+
+            // Menghasilkan koordinat acak
+            const randomX = Math.max(20, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(20, Math.floor(Math.random() * maxY));
+
+            // Mengaplikasikan posisi baru
+            btnNo.style.left = `${randomX}px`;
+            btnNo.style.top = `${randomY}px`;
+        };
+
+        // Event listener untuk Desktop (Mouse)
+        btnNo.addEventListener('mouseover', moveButton);
+        
+        // Event listener untuk Mobile (Touch)
+        btnNo.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Mencegah klik terdaftar
+            moveButton();
+        }, { passive: false });
+
+
+        // Fungsi ketika tombol "Iyaa" diklik
+        btnYes.addEventListener('click', () => {
+            // Sembunyikan tombol
+            buttonContainer.style.opacity = '0';
+            setTimeout(() => {
+                buttonContainer.style.display = 'none';
+                btnNo.style.display = 'none'; // Pastikan tombol no hilang
+            }, 300);
+
+            // Ubah teks
+            mainText.innerHTML = 'Yeay! Makasih udah dimaafin! 🥰💖';
+            mainText.classList.remove('text-gray-700');
+            mainText.classList.add('text-rose-500', 'scale-110');
+
+            // Munculkan animasi love
+            spawnHearts();
+        });
+
+        // Fungsi untuk memunculkan emoji love berjatuhan
+        function spawnHearts() {
+            const emojis = ['💖', '💕', '🥰', '✨', '🌸'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                    
+                    // Posisi horizontal acak
+                    heart.style.left = `${Math.random() * 100}vw`;
+                    
+                    // Durasi animasi acak agar terlihat natural
+                    heart.style.animationDuration = `${2 + Math.random() * 3}s`;
+                    
+                    heartsContainer.appendChild(heart);
+
+                    // Hapus elemen setelah animasi selesai agar memori tidak penuh
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, i * 150); // Muncul bertahap
+            }
+        }
+    </script>
+</body>
+</html>
